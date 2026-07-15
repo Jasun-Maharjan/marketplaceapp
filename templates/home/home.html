@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/style.css"/>
+</head>
+<body>
+    {% extends 'master/base.html' %}
+    {% block title %}Home{% endblock %}
+    {% block content %}
+    <p>This is the homepage content.</p>
+
+    <h2>Our products</h2>
+
+    <div class="product">
+        <h3>Laptop</h3>
+        <p>Price: Rs.1500</p>
+    </div>
+
+    {% for product in products %}
+    <div class="product">
+        <a href="{% url 'product_detail' product.id %}">
+            {{product.name}}
+        </a>
+        <p>Price: Rs.{{products.price}}</p>
+    </div>
+    {{product.product_name | truncatechars:70}}
+    {% endfor %}
+    {% endblock %}
+</body>
+</html>
