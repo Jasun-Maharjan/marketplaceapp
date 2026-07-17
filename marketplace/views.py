@@ -4,7 +4,7 @@ from products.models import Product
 
 def home(request):
     products = Product.objects.all()
-    return render(request, 'home/home.html', {'products': products})
+    return render(request, 'extending/home.html', {'products': products})
 
 def index(request):
     return HttpResponse("This is Products Page")
