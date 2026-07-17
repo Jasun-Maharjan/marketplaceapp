@@ -3,6 +3,9 @@
         <a href="/">Home</a> |
         <a href="/products/">Products</a> |
         <a href="/blogs/">Blogs</a>
+        {% for page in pages %}
+        <li>{{page.title}}</li>
+        {% endfor %}
     </nav>
     <hr>
 </header>
