@@ -8,7 +8,8 @@ def index(request):
 
 def product_detail(request, id):
     product = get_object_or_404(Product, id = id)
-    return render(request, 'products/dettails.html',{'product': product})
+    return render(request, 'extending/product_details.html',{'product': product})
 
 def products(request):
-    return render(request, 'products/details.html')
+    all_products = Product.objects.all
+    return render(request, 'extending/products.html',{'product': all_products})
