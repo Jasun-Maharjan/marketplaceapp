@@ -10,8 +10,8 @@ class Category(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
-    price = models.FloatField
-    description = models.TextField
+    price = models.FloatField(default=0)
+    description = models.TextField(default="")
     stock = models.IntegerField(default = 1)
     status = models.BooleanField(default = 0)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)

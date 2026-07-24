@@ -1,6 +1,6 @@
 {% extends 'master/base.html' %}
 {% block content %}
 <h2>{{ blog.title }}</h2>
-<p>{{ blog.description }}</p>
+<p>{{ blog.content }}</p>
 <a href="{% url 'blogs' %}">← Back to Blogs</a>
 {% endblock %}
