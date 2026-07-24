@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} Islington Marketplace{% endblock %}</title>
-    {% load static %}
+  <title>{% block title %}Islington Marketplace{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    {% include 'extending/header.html' %}
-    <h1>Welcome to the marketplace</h1>
-    {% block content %}
-    {% endblock %}
-    {% include 'extending/footer.html' %}
+  {% include 'includes/header.html' %}
+  
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include 'includes/footer.html' %}
 </body>
 </html>

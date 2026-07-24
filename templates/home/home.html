@@ -1,33 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../static/css/style.css"/>
-</head>
-<body>
-    {% extends 'master/base.html' %}
-    {% block title %}Home{% endblock %}
-    {% block content %}
-    <p>This is the homepage content.</p>
+{% extends 'master/base.html' %}
+{% block content %}
+<h2>Featured Products</h2>
+<ul>
+  {% for product in products %}
+    <li><a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a> – Rs. {{ product.price }}</li>
+  {% empty %}
+    <li>No products yet.</li>
+  {% endfor %}
+</ul>
 
-    <h2>Our products</h2>
-
-    <div class="product">
-        <h3>Laptop</h3>
-        <p>Price: Rs.1500</p>
-    </div>
-
-    {% for product in products %}
-    <div class="product">
-        <a href="{% url 'product_detail' product.id %}">
-            {{product.name}}
-        </a>
-        <p>Price: Rs.{{products.price}}</p>
-    </div>
-    {{product.product_name | truncatechars:70}}
-    {% endfor %}
-    {% endblock %}
-</body>
-</html>
+<h2>Latest Blogs</h2>
+<ul>
+  {% for blog in blogs %}
+    <li><a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a></li>
+  {% empty %}
+    <li>No blog posts yet.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
